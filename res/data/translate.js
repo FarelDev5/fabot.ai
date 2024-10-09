@@ -35,7 +35,7 @@ function setLanguage() {
         id: {
             head_share: "Bagikan Alat bantu Ai, Yang bersedia membantu anda kapan saja Secara Gratis.",
             whatsapp: "Bagikan di Whatsaap",
-            Telegram: "Bagikan di Instagram",
+            Telegram: "Bagikan di Telegram",
             back: "Kembali",
             twitter: "Bagikan di Twitter",
             facebook: "Bagikan Di Facebook"
