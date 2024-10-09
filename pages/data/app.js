@@ -339,6 +339,7 @@ deleteChatButton.addEventListener("click", () => {
     alert(popup);
     localStorage.removeItem("saved-chats");
     loadDataFromLocalstorage();
+    document.getElementById('slide').style.display = 'none'
     location.reload(true);
 });
 
