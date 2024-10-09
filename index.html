@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./images/ic/ic_app.png" />
+    <title>FABOT.AI</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="./res/des/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div onclick="showProfile()" class="account">
+            <img id="profile" controls style="width:2em;height:2rem">
+            <p id="user_name">User 7772</p>
+        </div>
+        <div class="button">
+            <div class="x-mark">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+        <!-- Header Greetings -->
+        <div class="logo">
+            <img alt="fabot.images" controls src="./images/ic/ic_app.png" />
+            <h1 class="title">FABOT.AI
+                <p style="font-size:1.5rem">By Farel Developer</p>
+            </h1>
+        </div>
+        <p id="ai-tool">Welcome</p><span id="displayUsername"></span>
+        <p class="subtitle">How can I help you today?</p>
+
+        <!-- Suggestion list -->
+        <ul class="suggestion-list">
+            <li class="suggestion">
+                <h4 class="text"></h4>
+                <span class="icon material-symbols-rounded">draw</span>
+            </li>
+            <li class="suggestion">
+                <h4 class="text"></h4>
+                <span class="icon material-symbols-rounded">lightbulb</span>
+            </li>
+            <li class="suggestion">
+                <h4 class="text"></h4>
+                <span class="icon material-symbols-rounded">explore</span>
+            </li>
+            <li class="suggestion">
+                <h4 class="text"></h4>
+                <span class="icon material-symbols-rounded">explore</span>
+            </li>
+        </ul>
+
+        <content id="description">
+            <p id="app-des">
+                This tool is designed for more accurate data analysis, and rapid AI-driven decision-making. It can also assist you in solving complex problems or tasks.
+            </p>
+            <p id="title-feature" style="font-weight:bold;">Fabot offers:</p>
+            <ul>
+                <li id="f1">
+                    Automatic high-quality content generation: Fabot.ai helps you create engaging and informative content automatically, saving you time and effort.
+                </li>
+                <br />
+                <li id="f2">
+                    Accurate customer query resolution: Fabot.ai provides instant and accurate responses to customer queries, improving customer experience and reducing workload on your support team.
+                </li>
+                <br />
+                <li id="f3">
+                    Personalized user experience: Fabot.ai collects and analyzes user data to deliver personalized experiences, boosting engagement and customer satisfaction.
+                </li>
+                <br />
+                <li id="f4">
+                    Text writing and translation across languages: Fabot.ai assists in composing and translating text in over 100 languages, making global communication and reaching a wider audience easier.
+                </li>
+            </ul>
+            <br />
+            <p id="f5">
+                Built with scalability and flexibility in mind, this tool is ideal for
+                businesses of all sizes, from startups to large enterprises.
+            </p>
+            <button id="about_developer">About Developer</button>
+        </content>
+    </header>
+
+    <!-- Chat List / Container -->
+    <div class="chat-list"></div>
+
+    <!-- Typing Area -->
+    <div class="typing-area">
+        <form action="#" class="typing-form">
+            <div class="input-wrapper">
+                <textarea type="text" id="textbox" placeholder="Enter a message here" class="typing-input"></textarea>
+                <button id="send-message-button" class="icon material-symbols-rounded">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.99972 12.0005L3.2688 3.125C9.88393 5.04665 16.0276 8.07649 21.4855 12.0002C16.0276 15.924 9.884 18.9539 3.26889 20.8757L5.99972 12.0005ZM5.99972 12.0005L13.5 12.0005" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div class="action-buttons">
+                <span id="theme-toggle-button" class="icon material-symbols-rounded"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V5.25M18.364 5.63604L16.773 7.22703M21 12H18.75M18.364 18.364L16.773 16.773M12 18.75V21M7.22703 16.773L5.63604 18.364M5.25 12H3M7.22703 7.22703L5.63604 5.63604M15.75 12C15.75 14.0711 14.0711 15.75 12 15.75C9.92893 15.75 8.25 14.0711 8.25 12C8.25 9.92893 9.92893 8.25 12 8.25C14.0711 8.25 15.75 9.92893 15.75 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg></span>
+                <span id="delete-chat-button" class="icon material-symbols-rounded"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.7404 9L14.3942 18M9.60577 18L9.25962 9M19.2276 5.79057C19.5696 5.84221 19.9104 5.89747 20.25 5.95629M19.2276 5.79057L18.1598 19.6726C18.0696 20.8448 17.0921 21.75 15.9164 21.75H8.08357C6.90786 21.75 5.93037 20.8448 5.8402 19.6726L4.77235 5.79057M19.2276 5.79057C18.0812 5.61744 16.9215 5.48485 15.75 5.39432M3.75 5.95629C4.08957 5.89747 4.43037 5.84221 4.77235 5.79057M4.77235 5.79057C5.91878 5.61744 7.07849 5.48485 8.25 5.39432M15.75 5.39432V4.47819C15.75 3.29882 14.8393 2.31423 13.6606 2.27652C13.1092 2.25889 12.5556 2.25 12 2.25C11.4444 2.25 10.8908 2.25889 10.3394 2.27652C9.16065 2.31423 8.25 3.29882 8.25 4.47819V5.39432M15.75 5.39432C14.5126 5.2987 13.262 5.25 12 5.25C10.738 5.25 9.48744 5.2987 8.25 5.39432" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg></span>
+                <span id="slide-chat-button" class="icon material-symbols-rounded">
+
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.25 11.9998L11.2045 3.04533C11.6438 2.60599 12.3562 2.60599 12.7955 3.04532L21.75 11.9998M4.5 9.74983V19.8748C4.5 20.4961 5.00368 20.9998 5.625 20.9998H9.75V16.1248C9.75 15.5035 10.2537 14.9998 10.875 14.9998H13.125C13.7463 14.9998 14.25 15.5035 14.25 16.1248V20.9998H18.375C18.9963 20.9998 19.5 20.4962 19.5 19.8748V9.74983M8.25 20.9998H16.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                </span>
+
+                <span id="slide-hide-button" class="icon material-symbols-rounded">
+
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.5 8.25H16.5M7.5 11.25H12M2.25 12.7593C2.25 14.3604 3.37341 15.754 4.95746 15.987C6.08596 16.1529 7.22724 16.2796 8.37985 16.3655C8.73004 16.3916 9.05017 16.5753 9.24496 16.8674L12 21L14.755 16.8675C14.9498 16.5753 15.2699 16.3917 15.6201 16.3656C16.7727 16.2796 17.914 16.153 19.0425 15.9871C20.6266 15.7542 21.75 14.3606 21.75 12.7595V6.74056C21.75 5.13946 20.6266 3.74583 19.0425 3.51293C16.744 3.17501 14.3926 3 12.0003 3C9.60776 3 7.25612 3.17504 4.95747 3.51302C3.37342 3.74593 2.25 5.13956 2.25 6.74064V12.7593Z" stroke="#" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+        </form>
+        <p class="disclaimer-text">
+            an AI assistance tool developed by farel developer
+        </p>
+    </div>
+    <div class="lock--ground"></div>
+    <div class="sidebar"></div>
+
+    <div class="credit--container">
+        <div class="ctx--credit">
+            <center>
+                <h1>CREDIT</h1>
+                <img alt="fabot.images" controls style="width:15rem; border-radius:5px;box-shadow:0 0 10px black;margin: 10px 0" src="images/ic/ic_app_launcher.png">
+                <p style="text-align:left;">Developer: Farel Alfareza</p>
+                <p style="text-align:left;">Programmer: Farel Alfareza</p>
+                <p style="text-align:left;">UI/UX Design: Farel Alfareza</p>
+                <p style="text-align:left;">Product Owner: Farel Alfareza</p>
+                <p style="text-align:left;">Qa (Quality Assurance): Farel Alfareza</p>
+                <p style="text-align:left;">Animator: Farel Alfareza</p>
+                <p style="text-align:left;">DevOps Enginer: Farel Alfareza</p>
+                <p style="text-align:left;">Product Manager: Farel Alfareza</p>
+                <h1>Feedback</h1>
+                <p>
+                    <a href="mailto:farel.developer55@gmail.com">Report A Bug : Email</a>
+                </p>
+                <p>
+                    <a href="./pages/developer_contact.html">Contact Me</a>
+                </p>
+        </div>
+        </center>
+    </div>
+
+    <div class="loading--container">
+        <div class="loader">
+            <div class="loading-spokes">
+                <div class="spoke-container">
+                    <div class="spoke"></div>
+                </div>
+                <div class="spoke-container">
+                    <div class="spoke"></div>
+                </div>
+                <div class="spoke-container">
+                    <div class="spoke"></div>
+                </div>
+                <div class="spoke-container">
+                    <div class="spoke"></div>
+                </div>
+                <div class="spoke-container">
+                    <div class="spoke"></div>
+                </div>
+                <div class="spoke-container">
+                    <div class="spoke"></div>
+                </div>
+                <div class="spoke-container">
+                    <div class="spoke"></div>
+                </div>
+                <div class="spoke-container">
+                    <div class="spoke"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="share-container">
+        <div class="container-sh">
+            <p class="description">
+                Share AI tools that are willing to help you anytime for free.
+            </p>
+
+            <a href="#" class="btn facebook" onclick="shareFacebook()">
+                <i class="fab fa-facebook-f"></i> Share on Facebook
+            </a>
+
+            <a href="#" class="btn twitter" onclick="shareTwitter()">
+                <i class="fab fa-twitter"></i> Share on Twitter
+            </a>
+            <a href="#" class="btn telegram" onclick="shareTelegram()">
+                <i class="fab fa-telegram-plane"></i> Share on Telegram
+            </a>
+            <a href="#" class="btn whatsapp" onclick="shareWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Share on WhatsApp
+            </a>
+            <a href="#" class="btn back" onclick="back()">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </div>
+    </div>
+    <div class="profile_size">
+        <img id="profile_large" controls src="">
+    </div>
+    <script>
+        var $ = {};
+    </script>
+    <script>
+        function back() {
+            document.querySelector(".share-container").style.bottom = "-100rem";
+            document.body.style.overflow = "auto";
+            document.querySelector('.lock--ground').classList.remove("show");
+        }
+
+        var description = `Halo saya ingin menawarkan sebuah alat bantu Ai gratis yang berfungsi sebagai berikut:
+
+*Kegunaan*:
+- Membuat konten berkualitas tinggi secara otomatis: Fabot.ai dapat membantu Anda membuat konten yang menarik dan informatif secara otomatis, sehingga menghemat waktu dan tenaga Anda.
+- Menjawab pertanyaan pelanggan dengan akurat: Fabot.ai dapat memberikan jawaban yang akurat dan cepat untuk pertanyaan pelanggan, meningkatkan pengalaman pelanggan dan mengurangi beban kerja tim dukungan Anda.
+- Memberikan informasi yang dipersonalisasi kepada pengguna: Fabot.ai dapat mengumpulkan dan menganalisis data pengguna untuk memberikan pengalaman yang dipersonalisasi, meningkatkan keterlibatan dan kepuasan pelanggan.
+- Menulis dan menerjemahkan teks dalam berbagai bahasa: Fabot.ai dapat membantu Anda membuat dan menerjemahkan teks dalam lebih dari 100 bahasa, memfasilitasi komunikasi global dan menjangkau audiens yang lebih luas.
+- alat ini ideal untuk bisnis dengan segala ukuran, mulai dari startup hingga perusahaan besar.
+
+*Tertarik untuk mencoba?? Kujungi web resminya hanya di:*
+`;
+
+        function shareFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${encodeURIComponent(description)}`;
+            window.open(fbUrl, "_blank", "width=600,height=400");
+        }
+
+
+        function shareTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(description);
+            const twUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+            window.open(twUrl, "_blank", "width=600,height=400");
+        }
+
+        function shareTelegram() {
+            const url = encodeURIComponent(window.location.href);
+            const tgUrl = `https://t.me/share/url?url=${url}&text=${encodeURIComponent(description)}`;
+            window.open(tgUrl, "_blank", "width=600,height=400");
+        }
+
+        function shareWhatsApp() {
+            const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(description)}%20${encodeURIComponent(window.location.href)}`;
+            window.open(waUrl, "_blank", "width=600,height=400");
+        }
+
+        function showProfile() {
+            document.querySelector('.profile_size').style.width = '100%'
+            document.querySelector('.profile_size').style.height = '100vh'
+            document.body.style.overflowY = "hidden";
+            document.querySelector('#profile_large').style.display = 'block'
+            setTimeout(function() {
+                document.querySelector('.profile_size').style.background = '#0009'
+                document.querySelector('.profile_size').style.backdropFilter= 'blur(5px)'
+            }, 100)
+        }
+        document.querySelector('.profile_size').addEventListener('click', function() {
+            document.querySelector('.profile_size').style.width = '0%'
+            document.querySelector('.profile_size').style.height = '0vh'
+            document.body.style.overflowY = "auto";
+            document.querySelector('.profile_size').style.background = 'transparent'
+            document.querySelector('.profile_size').style.backdropFilter= 'blur(0px)'
+            setTimeout(function(){
+              document.querySelector('#profile_large').style.display = 'none'
+            },100)
+        })
+    </script>
+    <script src="./res/data/translate.js"></script>
+    <script src="./res/script.js"></script>
+    <script src="./pages/data/app.js"></script>
+    <script src="./pages/data/sys.js"></script>
+    <script src="./res/feature.js"></script>
+    <script src="./res/ui.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Developer & Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #0F2027;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+          font-size: 1.5rem;
+          color: white;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ddd;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+             margin-bottom: 30px;
+            text-align: justify; /* Rata kanan-kiri */
+            text-align-last: center; /* Baris terakhir tetap rata tengah */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #333;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.8);
+        }
+        textarea {
+            background: rgba(255, 255, 255, 0.8);
+            resize: none;
+        }
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1ABC9C;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px 0;
+        }
+        button:hover {
+            background-color: #16A085;
+        }
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 20px;
+            background-color: #0F2027;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        footer p {
+            font-size: 0.9rem;
+            color: #bbb;
+            text-align: center;
+        }
+        .avatar img{
+          width: 8rem;
+          height: 8rem;
+          border-radius: 20px;
+          box-shadow: 0 0 10px black;
+        }
+        .avatar{
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LOGIN PAGE</h1>
+</header>
+
+<div class="container">
+    <div class="avatar">
+      <img src="./ic/fabot.png" alt="Developer Avatar">
+    </div>
+    <h2>FABOT</h2>
+    <p id="description">DATA SAVING BY "THE FAR.STUDIO"</p>
+
+    <form onsubmit="send()" method="post">
+        <label for="name" id="ourName">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email" id="ourEmail">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message" id="ourMessage">Your Password:</label>
+        <input type='password' id="message" name="message" required>
+
+        <button type="submit" id="submit_msg">Make Account</button>
+        <button type="button" onclick="history.back()" id="back">Back</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; <span id="hours"></span></p>
+    <p style="font-weight:bold;"> | The Far.Studio</p>
+    <p>. All Rights Reserved.</p>
+</footer>
+
+<script>
+  function setLanguage() {
+      var lang = navigator.language || navigator.userLanguage;
+      if (lang === 'id-ID') {
+          document.getElementById('description').innerText = 'KEAMANAN DATA DI LINDUNGI OLEH "THE FAR.STUDIO"';
+          document.getElementById('ourName').innerText = 'Nama Kamu';
+          document.getElementById('ourEmail').innerText = 'Email Kamu';
+          document.getElementById('ourMessage').innerText = 'Sandi Kamu';
+          document.getElementById('submit_msg').innerText = 'Buat Akun';
+          document.getElementById('back').innerText = 'Kembali';
+      }
+  }
+
+function send() {
+var nomor = '6287776697618'; 
+var name = document.getElementById('name').value;
+var msg = document.getElementById('message').value;
+var email = document.getElementById('email').value;
+
+var url = 'https://wa.me/' + nomor + '?text=' 
+          + 'Halo Kak Nama Saya ' + '*' + name + '*' + '%0A'
+          + 'Saya ingin mengajukan sesuatu yaitu: ' + encodeURIComponent(msg) + '%0A%0A'
+          + 'Dan ini Alamat Email Saya : ' + '*' + email + '*';
+window.open(url, '_blank');
+
+}
+
+  document.addEventListener('DOMContentLoaded', function() {
+      var date = new Date();
+      var years = date.getFullYear();
+      document.getElementById('hours').textContent = years;
+      setLanguage();
+  });
+</script>
+
+</body>
+</html>
