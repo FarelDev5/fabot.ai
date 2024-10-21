@@ -649,11 +649,11 @@ body.hide-header .header {
 }
 
 .ctx--credit {
+    width: auto;
     background: var(--secondary-color);
     padding: 1rem 2rem;
     border-radius: 5px;
     backdrop-filter: blur(5px);
-    overflow-y: auto;
 }
 
 .ctx--credit p {
@@ -870,8 +870,7 @@ body.hide-header .header {
     transform: translateX(100%) rotate(225deg);
     animation-delay: 0;
 }
-
-#slide-hide-button {
+#slide-chat-button {
     display: none;
 }
 
@@ -909,7 +908,7 @@ body.hide-header .header {
 
 .profile_size img {
     width: 50%;
-    height: 35%;
+    height: 40%;
     background: black;
     object-fit: cover;
     border-radius: 10px;
@@ -936,4 +935,8 @@ body.hide-header .header {
 }
 #user_name{
   font-size: 0.7rem;
+}
+
+#slide-hide-button{
+  opacity: 0%;
 }
